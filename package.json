@@ -1,0 +1,21 @@
+{   "name":             "oauth2-server"
+,   "version":          "0.0.1"
+    ,"description": "OAuth2 reference server implementation"
+,   "author":  {"name": "Steve Campbell", "email": "steve@perfectapi.com" }
+    ,"keywords": "authentication,oauth,security"
+    ,"homepage": "https://github.com/perfectapi/node-oauth2-server"
+    ,"bugs": {"url": "https://github.com/perfectapi/node-oauth2-server/issues", "email": "oauth2@perfectapi.com" }
+    ,"main": "./lib/main.js"
+	,"bin": "./bin/oauth2server.js"
+,   "engines": {
+        "node" : "0.6"
+    }
+,   "dependencies":    {   
+		"perfectapi": ">=0.0.13"
+    }
+,   "repository" :
+    {
+        "type" : "git",
+        "url" : "git://github.com/perfectapi/node-oauth2-server.git"
+    }
+}
