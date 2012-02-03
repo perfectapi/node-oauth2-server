@@ -1,0 +1,46 @@
+<% if (err) { %>
+<div id="err" class="alert alert-error"><%= err%></div>
+<% } %>
+
+<% for(var i=0; i<existingClients.length; i++) { %>
+<h2><%= existingClients[i].name%></h2>
+<ul class="unstyled">
+	<li><strong>Type: </strong><%= existingClients[i].type%></li>
+	<li><strong>Redirect Endpoint: </strong><%= existingClients[i].redirectEndpoint%></li>
+	<li><strong>Client Id: </strong><%= existingClients[i].id%></li>
+	<li><strong>Client Secret: </strong><%= existingClients[i].secret%></li>
+</ul>
+<% } %>
+
+<form class="well" action="/register/client" method="post">
+	<fieldset>
+		<legend>Add new client</legend>
+		<div class="control-group">
+			<label for="name">Unique name</label>
+			<div class="input">
+				<input type="text" class="medium" name="name" id="name"></input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="clientType">Client Type</label>
+			<div class="input">
+				<select class="medium" name="clientType" id="clientType">
+					<option>public</option>
+					<option>confidential</option>
+				</select>
+				<span class="help-inline">depends on your architecture - if your client secret could be exposed, then its public</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="endpoint">Redirect Endpoint</label>
+			<div class="input">
+				<input type="text" class="medium" name="endpoint" id="endpoint"></input>
+				<span class="help-inline">secure page on your own site which we will redirect to (with tokens &amp; codes)</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<input type="submit" class="btn" id="add" name="add" value="Save Client">
+		</div>
+		<div id="response" class="alert alert-block" style="display: none"></div>
+	</fieldset>
+</form>
